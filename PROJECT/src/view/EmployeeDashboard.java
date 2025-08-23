@@ -9,7 +9,7 @@ import javax.swing.*;
  * Enhanced Modern Employee dashboard panel with more features and creative layout.
  */
 public class EmployeeDashboard extends JPanel {
-    public JButton btnViewPayslip, btnPayrollHistory, btnProfile, btnSettings, btnSupport, btnLogout;
+    public JButton btnViewPayslip, btnPayrollHistory, btnProfile, btnCareerOpportunities, btnSupport, btnLogout;
     public JLabel lblWelcome, lblRole, lblAvatar;
     public JSeparator separator;
 
@@ -61,14 +61,14 @@ public class EmployeeDashboard extends JPanel {
         btnViewPayslip = createStyledButton("Payslip", "💰", listener);
         btnPayrollHistory = createStyledButton("Payroll History", "📑", listener);
         btnProfile = createStyledButton("Profile", "👤", listener);
-        btnSettings = createStyledButton("Settings", "⚙️", listener);
+        btnCareerOpportunities = createStyledButton("Career Opportunities", "🚀", listener);
         btnSupport = createStyledButton("Support", "🛠️", listener);
         btnLogout = createStyledButton("Logout", "🚪", listener);
 
         btnGrid.add(btnViewPayslip);
         btnGrid.add(btnPayrollHistory);
         btnGrid.add(btnProfile);
-        btnGrid.add(btnSettings);
+        btnGrid.add(btnCareerOpportunities);
         btnGrid.add(btnSupport);
         btnGrid.add(btnLogout);
 
@@ -78,7 +78,7 @@ public class EmployeeDashboard extends JPanel {
         JPanel bottomPanel = new JPanel();
         bottomPanel.setOpaque(false);
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(8, 0, 0, 0));
-        JLabel tip = new JLabel("Tip: Keep your profile up to date for personalized support.");
+        JLabel tip = new JLabel("Tip: Use Career Opportunities to discover your next big break on LinkedIn!");
         tip.setFont(new Font("Segoe UI", Font.ITALIC, 13));
         tip.setForeground(new Color(120, 130, 170));
         tip.setAlignmentX(Component.CENTER_ALIGNMENT);

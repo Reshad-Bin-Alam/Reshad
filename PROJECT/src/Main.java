@@ -41,6 +41,7 @@ public class Main {
     private static PayrollHistoryPanel empPayrollHistoryPanel;
     private static ReportPanel reportPanel;
     private static TaxRulePanel taxRulePanel;
+    private static CareerOpportunitiesPanel careerOpportunitiesPanel;
 
     // State
     private static Employee currentEmployee;
@@ -294,8 +295,10 @@ public class Main {
             // --- New feature buttons handling ---
             else if (src == employeeDashboard.btnProfile) {
                 JOptionPane.showMessageDialog(frame, "Profile feature coming soon!");
-            } else if (src == employeeDashboard.btnSettings) {
-                JOptionPane.showMessageDialog(frame, "Settings feature coming soon!");
+            } else if (src == employeeDashboard.btnCareerOpportunities) {
+                careerOpportunitiesPanel = new CareerOpportunitiesPanel(currentEmployee, empListener);
+                mainPanel.add(careerOpportunitiesPanel, "careerOpportunities");
+                showPanel("careerOpportunities");
             } else if (src == employeeDashboard.btnSupport) {
                 JOptionPane.showMessageDialog(frame, "Support feature coming soon!");
             }
@@ -303,6 +306,8 @@ public class Main {
             else if (src == employeeDashboard.btnLogout) {
                 showPanel("welcome");
             } else if (empPayrollHistoryPanel != null && src == empPayrollHistoryPanel.btnBack) {
+                showPanel("employeeDashboard");
+            } else if (careerOpportunitiesPanel != null && src == careerOpportunitiesPanel.btnBack) {
                 showPanel("employeeDashboard");
             }
         }
