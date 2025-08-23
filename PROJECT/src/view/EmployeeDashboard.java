@@ -9,7 +9,7 @@ import javax.swing.*;
  * Enhanced Modern Employee dashboard panel with more features and creative layout.
  */
 public class EmployeeDashboard extends JPanel {
-    public JButton btnViewPayslip, btnPayrollHistory, btnProfile, btnSettings, btnSupport, btnLogout;
+    public JButton btnViewPayslip, btnPayrollHistory, btnProfile, btnSettings, btnSupport, btnLinkedInOpportunities, btnLogout;
     public JLabel lblWelcome, lblRole, lblAvatar;
     public JSeparator separator;
 
@@ -24,7 +24,7 @@ public class EmployeeDashboard extends JPanel {
         JPanel card = new RoundedPanel(24, new Color(255, 255, 255), new Color(60, 72, 88), 2);
         card.setLayout(new BorderLayout());
         card.setBorder(BorderFactory.createEmptyBorder(24, 38, 24, 38));
-        card.setPreferredSize(new Dimension(430, 420));
+        card.setPreferredSize(new Dimension(450, 480));
 
         // Top: Profile section
         JPanel profilePanel = new JPanel();
@@ -52,10 +52,10 @@ public class EmployeeDashboard extends JPanel {
 
         card.add(profilePanel, BorderLayout.NORTH);
 
-        // Center: Grid of feature buttons
+        // Center: Grid of feature buttons (now 3x3 to accommodate LinkedIn opportunities)
         JPanel btnGrid = new JPanel();
         btnGrid.setOpaque(false);
-        btnGrid.setLayout(new GridLayout(2, 3, 22, 18));
+        btnGrid.setLayout(new GridLayout(3, 3, 15, 12));
         btnGrid.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
         btnViewPayslip = createStyledButton("Payslip", "💰", listener);
@@ -63,6 +63,7 @@ public class EmployeeDashboard extends JPanel {
         btnProfile = createStyledButton("Profile", "👤", listener);
         btnSettings = createStyledButton("Settings", "⚙️", listener);
         btnSupport = createStyledButton("Support", "🛠️", listener);
+        btnLinkedInOpportunities = createStyledButton("LinkedIn Tips", "🚀", listener);
         btnLogout = createStyledButton("Logout", "🚪", listener);
 
         btnGrid.add(btnViewPayslip);
@@ -70,7 +71,11 @@ public class EmployeeDashboard extends JPanel {
         btnGrid.add(btnProfile);
         btnGrid.add(btnSettings);
         btnGrid.add(btnSupport);
+        btnGrid.add(btnLinkedInOpportunities);
         btnGrid.add(btnLogout);
+        // Add empty panels to fill the 3x3 grid
+        btnGrid.add(new JPanel());
+        btnGrid.add(new JPanel());
 
         card.add(btnGrid, BorderLayout.CENTER);
 
