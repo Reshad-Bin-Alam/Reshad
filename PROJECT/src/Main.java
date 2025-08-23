@@ -41,6 +41,7 @@ public class Main {
     private static PayrollHistoryPanel empPayrollHistoryPanel;
     private static ReportPanel reportPanel;
     private static TaxRulePanel taxRulePanel;
+    private static LinkedInOpportunitiesPanel linkedInOpportunitiesPanel;
 
     // State
     private static Employee currentEmployee;
@@ -298,11 +299,18 @@ public class Main {
                 JOptionPane.showMessageDialog(frame, "Settings feature coming soon!");
             } else if (src == employeeDashboard.btnSupport) {
                 JOptionPane.showMessageDialog(frame, "Support feature coming soon!");
+            } else if (src == employeeDashboard.btnLinkedInOpportunities) {
+                linkedInOpportunitiesPanel = new LinkedInOpportunitiesPanel(empListener);
+                linkedInOpportunitiesPanel.loadOpportunities(currentEmployee);
+                mainPanel.add(linkedInOpportunitiesPanel, "linkedInOpportunities");
+                showPanel("linkedInOpportunities");
             }
             // --- End new feature buttons handling ---
             else if (src == employeeDashboard.btnLogout) {
                 showPanel("welcome");
             } else if (empPayrollHistoryPanel != null && src == empPayrollHistoryPanel.btnBack) {
+                showPanel("employeeDashboard");
+            } else if (linkedInOpportunitiesPanel != null && src == linkedInOpportunitiesPanel.btnBack) {
                 showPanel("employeeDashboard");
             }
         }
