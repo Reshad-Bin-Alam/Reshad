@@ -1,0 +1,21 @@
+# Compiled class files
+*.class
+
+# Bin directory with compiled classes
+PROJECT/bin/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Logs
+*.log
