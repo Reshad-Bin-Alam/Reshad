@@ -105,13 +105,13 @@ def update_stock_movement(db: Session, db_movement: models.StockMovement, moveme
             return None, "insufficient_stock"
         target_product.quantity = new_quantity
     else:
-        restored_current = current_product.quantity - db_movement.delta
-        if restored_current < 0:
+        reversed_current_quantity = current_product.quantity - db_movement.delta
+        if reversed_current_quantity < 0:
             return None, "insufficient_stock"
         new_target_quantity = target_product.quantity + movement.delta
         if new_target_quantity < 0:
             return None, "insufficient_stock"
-        current_product.quantity = restored_current
+        current_product.quantity = reversed_current_quantity
         target_product.quantity = new_target_quantity
 
     db_movement.product_id = movement.product_id

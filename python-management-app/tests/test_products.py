@@ -54,3 +54,18 @@ def test_create_and_list_products():
     list_body = list_response.json()
     assert len(list_body) == 1
     assert list_body[0]["sku"] == payload["sku"]
+
+
+def test_create_product_rejects_duplicate_sku():
+    payload = {
+        "name": "Laptop",
+        "sku": "LAP-001",
+        "price": 999.99,
+        "quantity": 5,
+    }
+    first_response = client.post("/products", json=payload)
+    assert first_response.status_code == 201
+
+    duplicate_response = client.post("/products", json=payload)
+    assert duplicate_response.status_code == 400
+    assert duplicate_response.json()["detail"] == "SKU already exists"
